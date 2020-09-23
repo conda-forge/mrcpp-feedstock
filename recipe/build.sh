@@ -1,4 +1,7 @@
 BUILD_TYPE="Release"
+CXXFLAGS="${CXXFLAGS//-march=nocona}"
+CXXFLAGS="${CXXFLAGS//-mtune=haswell}"
+echo "CXXFLAGS : ${CXXFLAGS}"
 
 if [[ ! -z "$mpi" && "$mpi" != "nompi" ]]; then
   export CXX=mpicxx
