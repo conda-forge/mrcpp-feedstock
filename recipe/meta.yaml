@@ -1,7 +1,7 @@
 {% set name = 'mrcpp' %}
 {% set version = "1.3.3" %}
 {% set sha256 = "78c43161d0a4deffaf5d199e77535f6acbd88cc718ebc342d6ec9d72165c243e" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -30,6 +30,8 @@ package:
 source:
   url: https://github.com/MRChemSoft/mrcpp/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - patches/remove-march-native.patch
 
 build:
   number: {{ build }}
