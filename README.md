@@ -172,4 +172,5 @@ Feedstock Maintainers
 
 * [@bjorgve](https://github.com/bjorgve/)
 * [@robertodr](https://github.com/robertodr/)
+* [@stigrj](https://github.com/stigrj/)
 
