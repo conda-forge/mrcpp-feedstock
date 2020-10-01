@@ -28,10 +28,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/MRChemSoft/mrcpp/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-  patches:
-    - patches/remove-march-native.patch
+  git_url: https://github.com/MRChemSoft/mrcpp
+  git_rev: master
+  #url: https://github.com/MRChemSoft/mrcpp/archive/v{{ version }}.tar.gz
+  #sha256: {{ sha256 }}
 
 build:
   number: {{ build }}
