@@ -3,13 +3,15 @@ About mrcpp
 
 Home: https://github.com/MRChemSoft/mrcpp
 
-Package license: LGPL-3.0-or-later
+Package license: [LGPL-3.0-or-later](https://opensource.org/licenses/LGPL-3.0)
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mrcpp-feedstock/blob/master/LICENSE.txt)
 
 Summary: MultiResolution Computational Program Package
 
+Development: https://github.com/MRChemSoft/mrcpp
 
+Documentation: https://mrcpp.readthedocs.io/en/latest/
 
 Current build status
 ====================
