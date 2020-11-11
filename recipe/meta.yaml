@@ -17,8 +17,7 @@
 {% set mpi_prefix = "nompi" %}
 {% endif %}
 # add build string so packages can depend on
-# mpi or nompi variants
-# dependencies:
+# mpi or nompi variants dependencies:
 # `mrcpp * mpi_mpich_*` for mpich
 # `mrcpp * mpi_*` for any mpi
 # `mrcpp * nompi_*` for no mpi
