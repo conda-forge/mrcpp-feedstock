@@ -176,6 +176,3 @@ Feedstock Maintainers
 * [@robertodr](https://github.com/robertodr/)
 * [@stigrj](https://github.com/stigrj/)
 
-
-<!-- dummy commit to enable rerendering -->
-
