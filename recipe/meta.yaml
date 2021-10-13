@@ -60,8 +60,6 @@ test:
     # Inspect linkage
     - ldd -v $PREFIX/lib/libmrcpp$SHLIB_EXT                               # [linux]
     - otool -L $PREFIX/lib/libmrcpp$SHLIB_EXT                             # [osx]
-    - conda inspect linkages --show-files --groupby=dependency $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME                          # [osx]
 
 outputs:
   - name: mrcpp
