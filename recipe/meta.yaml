@@ -1,6 +1,6 @@
 {% set name = "mrcpp" %}
-{% set version = "1.4.0" %}
-{% set sha256 = "3f4c2d780ed7338fa27d3f8f049a8c67f45ac21b119adb2b5f848409942bf976" %}
+{% set version = "1.4.1" %}
+{% set sha256 = "f369d72cc37415e9a6bdc0692ec4f6c5cfcc22e34b9ce569470e656c45e5b86c" %}
 {% set build = 0 %}
 
 # recipe-lint fails if mpi is undefined
