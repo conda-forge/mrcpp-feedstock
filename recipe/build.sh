@@ -11,7 +11,7 @@ else
 fi
 
 # configure
-cmake \
+cmake ${CMAKE_ARGS} \
   -H${SRC_DIR} \
   -Bbuild \
   -GNinja \
@@ -30,7 +30,9 @@ cd build
 cmake --build . -- -j${CPU_COUNT} -v -d stats
 
 # test
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 ctest -j${CPU_COUNT} --output-on-failure --verbose
+fi
 
 # install
 cmake --build . --target install -- -j${CPU_COUNT}
