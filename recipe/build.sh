@@ -3,7 +3,7 @@ CXXFLAGS="${CXXFLAGS//-march=nocona}"
 CXXFLAGS="${CXXFLAGS//-mtune=haswell}"
 
 if [[ ! -z "$mpi" && "$mpi" != "nompi" ]]; then
-  export CXX=mpicxx
+  export CXX=$(basename ${CXX})
   MPI_SUPPORT=ON
 else
   export CXX=$(basename ${CXX})
