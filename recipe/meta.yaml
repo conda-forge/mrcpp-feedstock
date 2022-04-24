@@ -44,6 +44,7 @@ requirements:
     - cmake >=3.14
     - {{ compiler('cxx') }}
     - ninja
+    - {{ mpi }}  # [mpi == 'openmpi' and build_platform != target_platform]
   host:
     - {{ pin_compatible('eigen', max_pin='x.x') }}
     - llvm-openmp  # [osx]
