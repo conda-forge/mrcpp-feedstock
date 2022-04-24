@@ -10,6 +10,15 @@ else
   MPI_SUPPORT=OFF
 fi
 
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
+  # This is only used by open-mpi's mpicc
+  # ignored in other cases
+  export OMPI_CC=$CC
+  export OMPI_CXX=$CXX
+  export OMPI_FC=$FC
+  export OPAL_PREFIX=$PREFIX
+fi
+
 # configure
 cmake ${CMAKE_ARGS} \
   -H${SRC_DIR} \
@@ -31,7 +40,7 @@ cmake --build . -- -j${CPU_COUNT} -v -d stats
 
 # test
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
-ctest -j${CPU_COUNT} --output-on-failure --verbose
+  ctest -j${CPU_COUNT} --output-on-failure --verbose
 fi
 
 # install
