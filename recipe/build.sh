@@ -19,10 +19,6 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   export OPAL_PREFIX="$PREFIX"
 fi
 
-if [[ ! -z "$mpi" && "$mpi" == "openmpi" ]]; then
-  export CXX="mpicxx"
-fi
-
 # configure
 cmake ${CMAKE_ARGS} \
   -H${SRC_DIR} \
