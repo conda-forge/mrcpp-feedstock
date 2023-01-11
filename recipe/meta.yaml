@@ -1,7 +1,7 @@
 {% set name = "mrcpp" %}
 {% set version = "1.4.1" %}
 {% set sha256 = "f369d72cc37415e9a6bdc0692ec4f6c5cfcc22e34b9ce569470e656c45e5b86c" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 # recipe-lint fails if mpi is undefined
 {% set mpi = mpi or 'nompi' %}
@@ -33,7 +33,6 @@ source:
 build:
   number: {{ build }}
   skip: true  # [win]
-  binary_relocation: true
   string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ pin_subpackage('mrcpp', max_pin='x.x') }}
@@ -48,27 +47,27 @@ requirements:
   host:
     - {{ pin_compatible('eigen', max_pin='x.x') }}
     - llvm-openmp  # [osx]
-    - libgomp      # [linux]
-    - {{ mpi }}    # [mpi != 'nompi']
+    - libgomp  # [linux]
+    - {{ mpi }}  # [mpi != 'nompi']
   run:
     - eigen
 
 test:
   commands:
     # Verify library
-    - test -f $PREFIX/lib/libmrcpp$SHLIB_EXT                              # [not win]
-    - test -L $PREFIX/lib/libmrcpp$SHLIB_EXT                              # [not win]
+    - test -f $PREFIX/lib/libmrcpp$SHLIB_EXT  # [not win]
+    - test -L $PREFIX/lib/libmrcpp$SHLIB_EXT  # [not win]
     # Inspect linkage
-    - ldd -v $PREFIX/lib/libmrcpp$SHLIB_EXT                               # [linux]
-    - otool -L $PREFIX/lib/libmrcpp$SHLIB_EXT                             # [osx]
+    - ldd -v $PREFIX/lib/libmrcpp$SHLIB_EXT  # [linux]
+    - otool -L $PREFIX/lib/libmrcpp$SHLIB_EXT  # [osx]
 
 outputs:
   - name: mrcpp
     files:
-      - bin/mrcpp-tests        # [not win]
-      - include/MRCPP          # [not win]
-      - lib/libmrcpp*          # [not win]
-      - share/cmake/MRCPP      # [not win]
+      - bin/mrcpp-tests  # [not win]
+      - include/MRCPP  # [not win]
+      - lib/libmrcpp*  # [not win]
+      - share/cmake/MRCPP  # [not win]
       - share/MRCPP/mwfilters  # [not win]
 
 about:
