@@ -59,7 +59,7 @@ test:
     - test -f $PREFIX/lib/libmrcpp$SHLIB_EXT  # [not win]
     - test -L $PREFIX/lib/libmrcpp$SHLIB_EXT  # [not win]
     # Inspect linkage
-    - ldd -v $PREFIX/lib/libmrcpp$SHLIB_EXT  # [linux]
+    - ldd -v $PREFIX/lib/libmrcpp$SHLIB_EXT  # [linux and build_platform == target_platform]
     - otool -L $PREFIX/lib/libmrcpp$SHLIB_EXT  # [osx]
 
 outputs:
